@@ -34,37 +34,9 @@ def startBubbleSort(data, drawData,stepTime):
     colorData[0]='green'
     drawData(data,colorData)
 
-from time import sleep
-colorData=[]
 
-def startQuickSort(data, drawData,stepTime):
-    global colorData
-    colorData=['grey' for x in range(len(data))]
-    quickSort(data,0,len(data)-1,drawData,stepTime)
-    colorData=['green' for x in range(len(data))]
-    # drawData(data,colorData)
 
-def quickSort(data,start,end,drawData,stepTime):
-    if start>=end:
-        return
-    
-    pivot=partition(data,start,end)
-    quickSort(data,start,pivot-1,drawData,stepTime)
-    quickSort(data,pivot+1,end,drawData,stepTime)
-
-def partition(data,start,end):
-    i=start-1
-    pivot=data[end]
-    for j in range(start,end):
-        if data[j]<=pivot:
-            i+=1
-            data[i],data[j]=data[j],data[i]
-    data[i+1],data[end]=data[end],data[i+1]
-    return i+1
-
-data=[434243,34,23,2323,121]
-startQuickSort(data,0,0)
-print(data)
+      
 
 def startMergeSort(data, drawData,stepTime):
     global colorData
@@ -214,18 +186,7 @@ def visualize(algorithm,stepTime):
     elif algorithm=="Selection Sort":
         startSelectionSort(data,drawData,stepTime)
     elif algorithm=="Insertion Sort":
-        startInsertionSort(data,drawData,stepTime)
-    elif algorithm=="Quick Sort":
-        startQuickSort(data,drawData,stepTime)
-    elif algorithm=="Radix Sort":
-        startMergeSort(data,drawData,stepTime)
-    elif algorithm=="Heap Sort":
-        startMergeSort(data,drawData,stepTime)
-    #add your algorithm and call it here
-    
-
-
-
+  
 #function to move the main window with the cursor drag
 #implement when in need to eliminate the title bar and make a custom title bar
 def get_pos(event):
